@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getMeals = createAsyncThunk(
-  "cart/getMeals",
+  "meals/getMeals",
   async (arg, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
@@ -26,10 +26,9 @@ export const getMeals = createAsyncThunk(
   }
 );
 
-const cartSlice = createSlice({
-  name: "cart",
+const mealsSlice = createSlice({
+  name: "meals",
   initialState: { meals: [], isLoading: false, error: null },
-  reducers: {},
   extraReducers: {
     // Get Meals
     [getMeals.pending]: (state) => {
@@ -47,4 +46,4 @@ const cartSlice = createSlice({
   },
 });
 
-export default cartSlice.reducer;
+export default mealsSlice.reducer;

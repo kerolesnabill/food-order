@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMeals } from "../store/cartSlice";
+import { getMeals } from "../store/features/mealsSlice";
 import MealCard from "./UI/MealCard";
 
 const Meals = () => {
   const dispatch = useDispatch();
-  const { meals, isLoading } = useSelector((state) => state.cart);
+  const { meals, isLoading } = useSelector((state) => state.meals);
 
   useEffect(() => {
     dispatch(getMeals());

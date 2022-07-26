@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cart from "./cartSlice";
+import cart from "./features/cartSlice";
+import meals from "./features/mealsSlice";
 
 export default configureStore({
-  reducer: { cart },
+  reducer: { meals, cart },
 });
