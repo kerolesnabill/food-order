@@ -1,10 +1,23 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { ReactComponent as CartIcon } from "../assets/icons/cart-shopping-solid.svg";
 
 const Header = ({ onShow }) => {
+  const { totalCount } = useSelector((state) => state.cart);
+
   return (
     <header className="fixed z-50 flex justify-between items-center text-center w-full h-20 bg-red-800 text-white text-3xl font-bold p-8 md:pl-24 md:pr-24 lg:pl-48 lg:pr-48">
       <div>Food Order</div>
-      <div onClick={onShow}>cart</div>
+      <div
+        className="flex text-xl bg-red-900 px-6 py-3 rounded-3xl"
+        onClick={onShow}
+      >
+        <CartIcon className="fill-white w-6 h-6 my-auto" />
+        <span className="px-3 my-auto">Your Cart</span>
+        <span className="bg-red-700 py-1 px-4 rounded-2xl my-auto">
+          {totalCount}
+        </span>
+      </div>
     </header>
   );
 };
