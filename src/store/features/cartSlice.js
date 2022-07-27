@@ -31,8 +31,23 @@ const cartSlice = createSlice({
       state.totalAmount = parseInt(totalAmount.toFixed(2));
       state.totalCount = totalCount;
     },
+    increase: (state, action) => {
+      state.meals = state.meals.map((meal) => {
+        if (meal.id === action.payload)
+          return { ...meal, amount: meal.amount + 1 };
+        return meal;
+      });
+    },
+    decrease: (state, action) => {
+      state.meals = state.meals.map((meal) => {
+        if (meal.id === action.payload)
+          return { ...meal, amount: meal.amount - 1 };
+        return meal;
+      });
+    },
   },
 });
 
-export const { add, remove, getCartTotal } = cartSlice.actions;
+export const { add, remove, getCartTotal, increase, decrease } =
+  cartSlice.actions;
 export default cartSlice.reducer;
