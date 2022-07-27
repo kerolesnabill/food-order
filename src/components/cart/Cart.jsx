@@ -1,12 +1,18 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getCartTotal } from "../../store/features/cartSlice";
 import CartItem from "./CartItem";
 import Modal from "../UI/Modal";
 
 const Cart = ({ onClose }) => {
-  const { meals } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const { meals, totalAmount } = useSelector((state) => state.cart);
 
   const cartItems = meals.map((meal) => <CartItem key={meal.id} {...meal} />);
+
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [meals]);
 
   return (
     <Modal onClose={onClose}>
@@ -16,7 +22,9 @@ const Cart = ({ onClose }) => {
       <div className="flex justify-between text-xl text-white">
         <h4 className="my-auto">
           Total Amount{" "}
-          <span className="block pl-8 text-yellow-500 font-bold">$</span>
+          <span className="block pl-8 text-yellow-500 font-bold">
+            ${totalAmount}
+          </span>
         </h4>
         <div className="my-auto">
           <button
