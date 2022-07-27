@@ -14,6 +14,7 @@ const Meals = () => {
   const mapMeals = meals.map((meal) => (
     <MealCard
       key={meal.id}
+      id={meal.id}
       title={meal.title}
       price={meal.price}
       img={meal.img}
