@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "../../store/features/cartSlice";
 
 const MealCard = ({ id, title, price, img }) => {
   const dispatch = useDispatch();
-  const [isAdded, setIsAdded] = useState(false);
+  const { meals } = useSelector((state) => state.cart);
 
   const meal = { id, title, price, img, amount: 1 };
+
+  const isAdded = meals.find((element) => element.id === id);
 
   const clickHandler = () => {
     if (isAdded) {
       dispatch(remove(id));
-      setIsAdded(false);
     } else {
       dispatch(add(meal));
-      setIsAdded(true);
     }
   };
 

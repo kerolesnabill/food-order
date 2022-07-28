@@ -1,9 +1,15 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as CartIcon } from "../assets/icons/cart-shopping-solid.svg";
+import { getCartTotal } from "../store/features/cartSlice";
 
 const Header = ({ onShow }) => {
-  const { totalCount } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const { meals, totalCount } = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [meals]);
 
   return (
     <header className="fixed z-50 flex justify-between items-center text-center w-full h-20 bg-red-800 text-white text-3xl font-bold p-8 md:pl-24 md:pr-24 lg:pl-48 lg:pr-48">

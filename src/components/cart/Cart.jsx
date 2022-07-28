@@ -12,7 +12,7 @@ const Cart = ({ onClose }) => {
 
   useEffect(() => {
     dispatch(getCartTotal());
-  }, [meals]);
+  }, [meals, dispatch]);
 
   return (
     <Modal onClose={onClose}>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ReactComponent as BtnUp } from "../../assets/icons/chevron-up-solid.svg";
 import { ReactComponent as BtnDown } from "../../assets/icons/chevron-down-solid.svg";
 import { ReactComponent as BtnTrash } from "../../assets/icons/trash-can-solid.svg";
@@ -31,7 +31,7 @@ const CartItem = ({ id, title, price, img, amount }) => {
         <button
           className="flex w-6 h-6 fill-white cursor-pointer hover:fill-slate-200 transition-all"
           onClick={() => dispatch(decrease(id))}
-          disabled={amount == 1}
+          disabled={amount === 1}
         >
           <BtnDown />
         </button>
