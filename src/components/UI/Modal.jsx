@@ -11,7 +11,7 @@ const Backdrop = ({ onClose }) => {
 
 const ModalOverlay = ({ children }) => {
   return (
-    <div className="fixed block top-[20vh] left-[5%] w-11/12 bg-neutral-700 p-4 rounded-2xl shadow-2xl shadow-neutral-500 z-50 transition-all ease-out md:w-[40rem] md:left-[calc(50%-20rem)]">
+    <div className="fixed block top-[15vh] left-[5%] w-11/12 bg-neutral-700 p-4 rounded-2xl shadow-2xl shadow-neutral-900 z-50 md:w-[40rem] md:left-[calc(50%-20rem)]">
       <div>{children}</div>
     </div>
   );

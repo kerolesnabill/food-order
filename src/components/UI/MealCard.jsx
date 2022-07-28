@@ -23,12 +23,12 @@ const MealCard = ({ id, title, price, img }) => {
       <img className="w-full h-[70%] rounded-t-xl" src={img} alt="" />
       <div className="p-4 grid grid-cols-2">
         <div>
-          <h3 className="text-3xl font-bold md:text-2xl lg:text-xl">
+          <h3 className="text-3xl font-bold md:text-2xl lg:text-xl xs:text-xl">
             {title}
             <span className="text-xl text-yellow-500 pt-1"> ${price}</span>
           </h3>
         </div>
-        <div className="block text-center my-auto">
+        <div className="block text-center">
           <button
             className={
               isAdded

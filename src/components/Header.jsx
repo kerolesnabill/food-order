@@ -9,13 +9,13 @@ const Header = ({ onShow }) => {
 
   useEffect(() => {
     dispatch(getCartTotal());
-  }, [meals]);
+  }, [meals, dispatch]);
 
   return (
-    <header className="fixed z-50 flex justify-between items-center text-center w-full h-20 bg-red-800 text-white text-3xl font-bold p-8 md:pl-24 md:pr-24 lg:pl-48 lg:pr-48">
+    <header className="fixed z-30 flex justify-between items-center text-center w-full h-20 bg-red-800 text-white text-3xl font-bold p-8 md:pl-24 md:pr-24 lg:pl-48 lg:pr-48 xs:text-xl xs:p-4">
       <div>Food Order</div>
       <div
-        className="flex text-xl bg-red-900 px-6 py-3 rounded-3xl"
+        className="flex text-xl bg-red-900 px-6 py-3 rounded-3xl xs:text-sm xs:px-3 xs:py-1.5"
         onClick={onShow}
       >
         <CartIcon className="fill-white w-6 h-6 my-auto" />
